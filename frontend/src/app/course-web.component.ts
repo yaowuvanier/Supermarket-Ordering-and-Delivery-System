@@ -1,10 +1,28 @@
-import { Component } from "@angular/core";  // an Angular decorate
+import { Component, NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'courses', // <div id='courses'> #courses    <courses> (extend html element)
-    template: '<h2>Courses</h2>'
+    selector: 'courses',
+    template: `
+        <h2>{{ getTitle() }}</h2>
+        <ul>
+            <li *ngFor="let course of courses">
+                {{ course }}
+            </li>
+        </ul>
+    `
 })
+export class CoursewebComponent {
+    title = "Lists of courses";
+    courses = ['course1', 'course2', 'course3'];
 
-export class CoursewebComponent{
-
+    getTitle() {
+        return this.title;
+    }
 }
+
+@NgModule({
+    declarations: [CoursewebComponent],
+    imports: [CommonModule]
+})
+export class CoursewebModule {}

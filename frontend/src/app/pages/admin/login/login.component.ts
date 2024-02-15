@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  title = 'login page'
+  courses = ["course1", 'course2', 'coures3']
+
+  // logic for calling an http service
 
 }
