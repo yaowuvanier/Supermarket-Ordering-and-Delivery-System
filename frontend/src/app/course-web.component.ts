@@ -1,5 +1,6 @@
 import { Component, NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { CourseService } from "./course-web.service";
 
 @Component({
     selector: 'courses',
@@ -14,9 +15,14 @@ import { CommonModule } from '@angular/common';
 })
 export class CoursewebComponent {
     title = "Lists of courses";
-    courses = ['course1', 'course2', 'course3'];
+    courses;
 
-    getTitle() {
+    constructor() {
+        let service = new CourseService();
+        this.courses = service.getCourse();
+    }
+
+    getTitle(){
         return this.title;
     }
 }
