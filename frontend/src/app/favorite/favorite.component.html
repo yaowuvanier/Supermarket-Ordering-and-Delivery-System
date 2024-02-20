@@ -1,1 +1,6 @@
-<p>favorite works!</p>
+<span
+  class="bi"
+  [class.bi-star]="isFavorite"
+  [class.bi-star-fill]="!isFavorite"
+  (click)="onClick()"
+></span>
