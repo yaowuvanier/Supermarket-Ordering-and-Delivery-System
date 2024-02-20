@@ -2,6 +2,7 @@ import { Component, NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { CourseService } from "./course-web.service";
 import { FormsModule } from '@angular/forms';
+import { SummaryPipe } from "./summary.pipe";
 
 @Component({
     selector: 'courses',
@@ -42,8 +43,9 @@ import { FormsModule } from '@angular/forms';
         {{ course1.price | currency: 'CAD'  }} <br />
         {{ course1.releaseData | date: 'shortDate'  }} <br />
 
-
-
+        <br />
+        <!-- a custom pipe --->
+        {{ text | summary: 20  }}
 
 
     `
@@ -60,7 +62,18 @@ export class CoursewebComponent {
         price: 188.88,
         releaseData: new Date (2022,2,22)
     }
-
+    // for custom pipe
+    text = `我们现在为 SML/NJ 提供 Microsoft 安装程序包。
+    安装程序包含完整安装，包括
+    几乎所有可选组件。（我们只排除
+    “mlrisc-tools”和“无处”。）
+    
+    您可以选择安装目录。默认的
+    是 C:\Program Files\SMLNJ。bin目录包含
+    sml 命令被添加到默认路径中，但是
+    请注意，您需要重新打开命令窗口才能看到
+    绑定。SMLNJ_HOME 环境变量也是
+    设置为指向安装 SML/NJ 的位置。`
     constructor() {
         let service = new CourseService();
         this.courses = service.getCourse();
@@ -93,7 +106,7 @@ export class CoursewebComponent {
 }
 
 @NgModule({
-    declarations: [CoursewebComponent],
+    declarations: [CoursewebComponent , SummaryPipe ], // cause it is a self-define
     imports: [CommonModule, FormsModule] //*ngFor,  ngModel
 })
 
