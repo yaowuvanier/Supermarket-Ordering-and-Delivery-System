@@ -31,7 +31,7 @@ import { SummaryPipe } from "./summary.pipe";
 
 
         <!-- another way to bind-->
-        <!--- recommand to use this one----->
+        <!--- recommand to use this one---two-way binding -->
         <input [(ngModel)]="email"  (keyup.enter) = "onKeyUp3()" />
 
         <br />
@@ -47,7 +47,23 @@ import { SummaryPipe } from "./summary.pipe";
         <!-- a custom pipe --->
         {{ text | summary: 20  }}
 
+        <!--ngSwitch--->
+        <div [ngSwitch] = "person.age" style="text-align: center; font-size: 20px;">
+            <p *ngSwitchCase="10">the person is 10 years old</p>
+            <p *ngSwitchCase="20">the person is 20 years old</p>
+            <p *ngSwitchCase="30">the person is 30 years old</p>
+            <p *ngSwitchDefault>the person is {{person.age}} years old</p>
 
+        </div>
+
+        <div >
+            <label>Enter your age : </label>
+            <input type="text" (input)="checkEligiblility()" [(ngModel)="age"]/>
+            <div [ngSwitch]="isEligible">
+                <p *ngSwitchCase="true">You are eligible to vote</p>
+                <p *ngSwitchDefault>You are not eligible to vote</p>
+            </div>
+        </div>
     `
 })
 
@@ -74,6 +90,17 @@ export class CoursewebComponent {
     请注意，您需要重新打开命令窗口才能看到
     绑定。SMLNJ_HOME 环境变量也是
     设置为指向安装 SML/NJ 的位置。`
+
+    person = {
+        age : 38
+    }
+   
+    age = 0;
+    isEligible: boolean = false;
+    checkEligiblility(){
+        this.isEligible = this.age >= 18;
+    }
+
     constructor() {
         let service = new CourseService();
         this.courses = service.getCourse();
