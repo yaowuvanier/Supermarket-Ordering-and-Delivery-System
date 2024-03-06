@@ -21,3 +21,46 @@
     </tbody>
   </table>
 </div>
+
+<br />
+<br />
+
+<div>
+    <h2>Role Selecltion</h2>
+    <select [(ngModel)]="employeeRole">
+        <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="HR">HR</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Developer">Developer</option>
+        <option value="Analyst">Analyst</option>        
+    </select>
+
+    @switch(employeeRole){
+        @case('Admin'){
+            <h1>List of Empolyees</h1>
+            <h3>Selected Role: Admin</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nanme</td>
+                        <td>Role</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(emp of employees(); track $index){
+                        @if(emp.role === 'Admin'){
+                            <tr>
+                                <td>{{emp.id}}</td>
+                                <td>{{emp.name}}</td>
+                                <td>{{emp.role}}</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        }
+    }
+</div>
