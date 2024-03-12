@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ordering-delivering-angular": {
+      "hosting": {
+        "frontend": [
+          "ordering-delivering-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ordering-delivering-angular"
+  }
+}
