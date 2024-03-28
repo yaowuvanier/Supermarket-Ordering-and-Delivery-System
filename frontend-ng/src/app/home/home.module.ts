@@ -4,13 +4,15 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SiderNavigationComponent } from './components/sider-navigation/sider-navigation.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeaderComponent,
-    SiderNavigationComponent
+    SiderNavigationComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
