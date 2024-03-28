@@ -12,4 +12,6 @@ export class CategoryService {
   getAllCategories() : Category[]{
     return categories;
   }
+
+
 }
