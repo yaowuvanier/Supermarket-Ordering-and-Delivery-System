@@ -1,12 +1,21 @@
-<div class="card" style="max-width: 18rem">
-  <img
-    src="../../../../assets/images/Bread/bread1.jpg"
-    class="card-img-top"
-    alt="Bread Image"
-    style="max-width: 100%; height: auto"
-  />
-  <div class="card-body">
-    <h5 class="card-title"><a href="#">bread1</a></h5>
-    <p class="card-text">$4</p>
+<div *ngFor="let product of products">
+  <div class="card" style="max-width: 18rem">
+    <img
+      [src]="
+        '../../../../assets/images/' +
+        product.category +
+        '/' +
+        product.product_img
+      "
+      class="card-img-top"
+      alt="Bread Image"
+      style="max-width: 100%; height: auto"
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="#">{{ product.product_name }}</a>
+      </h5>
+      <p class="card-text">${{ product.price }}</p>
+    </div>
   </div>
 </div>
