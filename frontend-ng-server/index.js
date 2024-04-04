@@ -13,13 +13,14 @@ const pool = mysql.createPool({
 });
 
 app.get('/', (req, res) => {
-    let prodData = {
-        pName: 'Bread',
-        price: 5,
-        img: 'bread.jpg'
-    }
-    res.status(200).send(prodData)
+    pool.getConnection((err, connection)=>{
+        if(err)
+            res.status(500).send(err);
+        else
+            res.status(200).send('connection established');
+    })
 })
+
 const server = app.listen(PORT, () =>
     console.log('APP IS RUNNING ON THE PORT - 5001...')
 )
