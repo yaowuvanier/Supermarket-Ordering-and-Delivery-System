@@ -1,8 +1,10 @@
-export interface ProductListItem{
+export interface Product{
     id: number;
     product_name: string;
     product_img: string;
     price: number;
     ratings:number;
-    category: string;
+    category_id: number;
+    product_description: string
+
 }
