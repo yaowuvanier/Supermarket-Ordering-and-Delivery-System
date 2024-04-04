@@ -35,4 +35,44 @@ insert into estore.products(id, product_name, product_description,
 (15, 'carrot', 'fresh carrot', 1.99,4,6, '/Vegetables/carrot.jpg'),
 (16, 'corn', 'fresh corn', 0.99,5,6, '/Vegetables/corn.jpg');
 
-   
+INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
+ (17, 'bread4', 'a type of delicious bread', 4,3.5,2, '/Bread/bread4.jpg'),
+(18, 'bread5', 'a type of delicious bread', 5,5,2, '/Bread/bread5.jpg'),
+(19, 'bread6', 'a type of delicious bread', 5,4,2, '/Bread/bread6.jpg'),
+ (20, 'bread7', 'a type of delicious bread', 4,3,2, '/Bread/bread7.jpg'),
+(21, 'bread8', 'a type of delicious bread', 5,4,2, '/Bread/bread8.jpg'),
+(22, 'bread9', 'a type of delicious bread', 5,2,2, '/Bread/bread9.jpg'),
+(23, 'bread10', 'a type of delicious bread', 5,5,2, '/Bread/bread10.jpg'),
+(24, 'bread11', 'a type of delicious bread', 5,4,2, '/Bread/bread11.jpg');
+
+INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
+(26, 'cheese2', 'a type of delicious cheese', 10,4,3, '/Dairy/cheese2.jpg'),
+(25, 'eggs', 'free run eggs', 6.99,5,3, '/Dairy/eggs.jpg');
+
+INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
+
+ (27, 'green-apple', 'delicious green-apple', 5,4,4, '/Fruits/green-apple.jpg'),
+(28, 'kiwi', 'elicious kiwi', 4.99,4,4, '/Fruits/kiwi.jpg'),
+(29, 'Lime', 'delicious Lime', 5.99,5,4, '/Fruits/Lime.jpg'),
+(30, 'orange', 'delicious orange', 2.99,3,4, '/Fruits/orange.jpg'),
+(31, 'Pineapple', 'delicious Pineapple', 2.99,3,4, '/Fruits/Pineapple.jpg'),
+(32, 'Pomegranate', 'delicious Pomegranate', 9.99,3,4, '/Fruits/Pomegranate.jpg'),
+(33, 'strawberry', 'delicious strawberry', 2.99,3,4, '/Fruits/strawberry.jpg'),
+(34, 'tangerine', 'delicious tangerine', 1.99,3,4, '/Fruits/tangerine.jpg'),
+(35, 'watermelon', 'delicious watermelon', 5.99,3,4, '/Fruits/watermelon.jpg');
+
+INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
+
+(36, 'garlic', 'excellence garlic', 5.99,5,5, '/Seasonings and Spices/garlic.jpg'),
+ (37, 'ginger', 'excellence ginger', 8.99,4,5, '/Seasonings and Spices/ginger.jpg'), 
+ (38, 'Sichuan_pepper', 'excellence Sichuan_pepper', 5.99,4,5, '/Seasonings and Spices/Sichuan_pepper.jpg'), 
+  (39, 'star-anise', 'excellence star-anise', 5.99,4,5, '/Seasonings and Spices/star-anise.jpg');
+
+  
+
+   INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
+
+(40, 'hot-pepper', 'fresh hot-pepper', 5.99,3,6, '/Vegetables/hot-pepper.jpg'),
+(41, 'mushroom', 'fresh mushroom', 8.99,4,6, '/Vegetables/mushroom.jpg'),
+(42, 'pea', 'fresh pea', 4.99,5,6, '/Vegetables/pea.jpg'),
+(43, 'tomato', 'fresh tomato', 3.99,3,6, '/Vegetables/tomato.jpg');
