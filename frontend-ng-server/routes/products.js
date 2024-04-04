@@ -11,16 +11,17 @@ products.get('/', (req,res)=>{
   }
 
   var keyword = req.query.keyword;
+  let queryKeyword = 'select * from products ';
   if (keyword){
-    query += ` and keywords like '%${keyword}%'`;
+    query = queryKeyword + ` where  keywords like '%${keyword}%'`;
   }
-
-    pool.query(query,(error, products)=>{
-        if (error)
-            res.status(500).send(error);
-        else
-            res.status(200).send(products);
-    } )
+  console.log("keyword is " + keyword, "query is " + query);
+  pool.query(query,(error, products)=>{
+      if (error)
+          res.status(500).send(error);
+      else
+          res.status(200).send(products);
+  } )
 })
 
 products.get('/(:id)', (req, res) => {
