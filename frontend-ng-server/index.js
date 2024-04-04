@@ -17,8 +17,11 @@ app.get('/', (req, res) => {
         if(err)
             res.status(500).send(err);
         else{
-            pool.query('select* from categories', (error, categories)=>{
-                res.status(200).send(categories)
+            pool.query('select* from categorie', (error, categories)=>{
+                if (error)
+                    res.status(500).send(error);
+                else
+                    res.status(200).send(categories);
             })
         }
             
