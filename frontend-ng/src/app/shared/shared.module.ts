@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RatingsComponent } from './components/ratings/ratings.component';
-
+import { FontAwesomeModule } from  '@fortawesome/free-regular-svg-icons'
 
 
 @NgModule({
@@ -9,7 +9,8 @@ import { RatingsComponent } from './components/ratings/ratings.component';
     RatingsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }
