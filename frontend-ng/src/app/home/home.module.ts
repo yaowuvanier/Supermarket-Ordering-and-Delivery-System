@@ -11,6 +11,9 @@ import { SharedModule } from '../shared/shared.module';
 import { CategoryService } from './services/category.service';
 import { CategoriesStoreItem } from './services/categories.storeItem';
 
+import { ProductsStoreItem } from './components/products/products.storeItem';
+import { ProductsService } from './components/products/products.service';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,6 +27,6 @@ import { CategoriesStoreItem } from './services/categories.storeItem';
     HttpClientModule,
     SharedModule
   ],
-  providers: [CategoryService, CategoriesStoreItem],
+  providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem],
 })
 export class HomeModule { }
