@@ -16,8 +16,12 @@ app.get('/', (req, res) => {
     pool.getConnection((err, connection)=>{
         if(err)
             res.status(500).send(err);
-        else
-            res.status(200).send('connection established');
+        else{
+            pool.query('select* from categories', (error, categories)=>{
+                res.status(200).send(categories)
+            })
+        }
+            
     })
 })
 
