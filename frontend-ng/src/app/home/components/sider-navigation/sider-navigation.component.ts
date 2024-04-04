@@ -32,6 +32,7 @@ export class SidenavigationComponent implements OnDestroy {
 
   onCategoryClicked(category:Category):void{
     this.categoryClicked.emit(category.id);
+    console.log("category id is " + category.id );
   }
 
   ngOnDestroy(): void {

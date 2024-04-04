@@ -3,7 +3,14 @@ const products = express.Router();
 const pool = require('../shared/pool');
 
 products.get('/', (req,res)=>{
-    pool.query('select * from products',(error, products)=>{
+  var categoryId = req.query.categoryId;
+  let query = 'select * from products ';
+  //when categoryId=1, it's allCategory, so query no need to change
+  if (categoryId && (categoryId!=='1')){
+    query += 'where category_id = ' + categoryId;
+  }
+
+    pool.query(query,(error, products)=>{
         if (error)
             res.status(500).send(error);
         else
