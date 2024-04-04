@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SiderNavigationComponent } from './components/sider-navigation/sider-navigation.component';
 import { ProductsComponent } from './components/products/products.component';
 
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductsComponent } from './components/products/products.component';
   ],
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ]
 })
 export class HomeModule { }
