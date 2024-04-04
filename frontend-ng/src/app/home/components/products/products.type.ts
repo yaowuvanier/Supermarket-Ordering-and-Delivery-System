@@ -3,5 +3,6 @@ export interface ProductListItem{
     product_name: string;
     product_img: string;
     price: number;
+    ratings:number;
     category: string;
 }

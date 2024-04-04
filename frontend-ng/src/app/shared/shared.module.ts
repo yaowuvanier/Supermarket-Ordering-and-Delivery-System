@@ -11,6 +11,7 @@ import { FontAwesomeModule } from  '@fortawesome/free-regular-svg-icons'
   imports: [
     CommonModule,
     FontAwesomeModule
-  ]
+  ],
+  exports:[RatingsComponent]
 })
 export class SharedModule { }
