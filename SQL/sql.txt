@@ -1,0 +1,38 @@
+create table estore.products(
+id int not null,
+product_name varchar(45) default null,
+product_description varchar(100) default null,
+price decimal (10,0) default null,
+ratings int default null,
+category_id int default null,
+product_img varchar(45),
+primary key (id),
+Key FK_Products_Categories_id(category_id),
+constraint FK_Products_Categories
+foreign key (category_id) references estore.categories(id)
+on update cascade on delete cascade);
+
+insert into estore.products(id, product_name, product_description,
+ price, ratings,category_id,product_img) values 
+ (1, 'bread1', 'a type of delicious bread', 4,4,2, '/Bread/bread1.jpg'),
+(2, 'bread2', 'a type of delicious bread', 5,4,2, '/Bread/bread2.jpg'),
+(3, 'bread3', 'a type of delicious bread', 5,4,2, '/Bread/bread3.jpg'),
+
+(4, 'cheese', 'a type of delicious cheese', 10,4,3, '/Dairy/cheese.jpg'),
+(5, 'milk', 'quebec excellence milk', 4,5,3, '/Dairy/milk.jpg'),
+
+ (6, 'apple', 'quebec excellence apple', 2,4,4, '/Fruits/apple.jpg'),
+ (7, 'avocado', 'delicious avocado', 5,4,4, '/Fruits/avocado.jpg'),
+(8, 'blueberry', 'elicious blueberry', 4.99,4,4, '/Fruits/blueberry.jpg'),
+(9, 'cherry', 'delicious cherry', 5.99,5,4, '/Fruits/cherry.jpg'),
+(10, 'Grape', 'delicious Grape', 2.99,3,4, '/Fruits/Grape.jpg'),
+
+(11, 'basil', 'excellence basil', 5.99,5,5, '/Seasonings and Spices/basil.jpg'),
+ (12, 'cinnamon', 'excellence cinnamon', 8.99,4,5, '/Seasonings and Spices/cinnamon.jpg'), 
+ (13, 'dried-chili-pepper', 'excellence dried-chili-pepper', 5.99,4,5, '/Seasonings and Spices/dried-chili-pepper.jpg'), 
+
+(14, 'broccoli', 'fresh broccoli', 3.99,3,6, '/Vegetables/broccoli.jpg'),
+(15, 'carrot', 'fresh carrot', 1.99,4,6, '/Vegetables/carrot.jpg'),
+(16, 'corn', 'fresh corn', 0.99,5,6, '/Vegetables/corn.jpg');
+
+   

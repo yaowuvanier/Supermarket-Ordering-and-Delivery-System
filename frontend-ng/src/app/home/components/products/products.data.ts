@@ -31,7 +31,7 @@ export const products: ProductListItem[] =[
     },    
     {
         id: 5,
-        product_name: 'bread1',
+        product_name: 'milk',
         product_img: 'milk.jpg',
         price: 4,
         category: 'Dairy'
