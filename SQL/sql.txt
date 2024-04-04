@@ -68,7 +68,7 @@ INSERT INTO estore.products (id, product_name, product_description, price, ratin
  (38, 'Sichuan_pepper', 'excellence Sichuan_pepper', 5.99,4,5, '/Seasonings and Spices/Sichuan_pepper.jpg'), 
   (39, 'star-anise', 'excellence star-anise', 5.99,4,5, '/Seasonings and Spices/star-anise.jpg');
 
-  
+
 
    INSERT INTO estore.products (id, product_name, product_description, price, ratings, category_id, product_img) VALUES 
 
@@ -76,3 +76,22 @@ INSERT INTO estore.products (id, product_name, product_description, price, ratin
 (41, 'mushroom', 'fresh mushroom', 8.99,4,6, '/Vegetables/mushroom.jpg'),
 (42, 'pea', 'fresh pea', 4.99,5,6, '/Vegetables/pea.jpg'),
 (43, 'tomato', 'fresh tomato', 3.99,3,6, '/Vegetables/tomato.jpg');
+
+
+
+
+
+
+
+
+-- adding keywords
+alter table estore.products add column keywords varchar(200) null;
+
+
+
+--set keywords
+update estore.products set keywords = 'delicious bread' where category_id =2;
+update estore.products set keywords = 'cheese milk egg eggs Dairy' where category_id =3;
+update estore.products set keywords = 'Fruits fruit apple berry Grape kiwi orange' where category_id =4;
+update estore.products set keywords = 'garlic ginger pepper anise basil cinnamon' where category_id =5;
+update estore.products set keywords = 'green tomato pea  mushroom corn broccoli' where category_id =6;
