@@ -10,6 +10,11 @@ products.get('/', (req,res)=>{
     query += 'where category_id = ' + categoryId;
   }
 
+  var keyword = req.query.keyword;
+  if (keyword){
+    query += ` and keywords like '%${keyword}%'`;
+  }
+
     pool.query(query,(error, products)=>{
         if (error)
             res.status(500).send(error);

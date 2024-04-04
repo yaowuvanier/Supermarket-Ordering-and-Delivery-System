@@ -125,3 +125,36 @@ update estore.products set keywords = 'Vegetables fresh hot-pepper green' where 
 update estore.products set keywords = 'Vegetables fresh mushroom' where id =41;
 update estore.products set keywords = 'Vegetables fresh pea green' where id =43;
 update estore.products set keywords = 'Vegetables fresh corn tomato' where id =42;
+
+
+-- remove space
+update estore.products set keywords = 'milk,Dairy' where id =5 ;
+update estore.products set keywords = 'egg,eggs,Dairy' where id =25;
+
+update estore.products set keywords = 'Fruits,fruit,apple,red' where id =6;
+update estore.products set keywords = 'Fruits,fruit,apple,berryblueberry,blue' where id =8;
+update estore.products set keywords = 'Fruits,fruit,avocado,green' where id =7;
+update estore.products set keywords = 'Fruits,fruit,cherry,red,Purple' where id =9;
+update estore.products set keywords = 'Fruits,fruit,Grape,green' where id =10;
+update estore.products set keywords = 'Fruits,fruit,apple,green' where id =27;
+update estore.products set keywords = 'Fruits,fruit,kiwi,yellow,green' where id =28;
+update estore.products set keywords = 'Fruits,fruit,avocado,green' where id =31;
+update estore.products set keywords = 'Fruits,fruit,Lime,green' where id =29;
+update estore.products set keywords = 'Fruits, fruit,orange' where id =30;
+update estore.products set keywords = 'Fruits, fruit,Pomegranate,red' where id =32;
+update estore.products set keywords = 'Fruits, fruit,strawberry,berry,red' where id =33;
+update estore.products set keywords = 'Fruits, fruit,tangerine,orange' where id =34;
+update estore.products set keywords = 'Fruits, fruit,watermelon,green,sweet' where id =35;
+
+update estore.products set keywords = 'Vegetables,fresh,broccoli,green' where id =14;
+update estore.products set keywords = 'Vegetables,fresh,carrot,orange' where id =15;
+update estore.products set keywords = 'Vegetables,fresh,corn,yellow,sweet' where id =16;
+
+update estore.products set keywords = 'Vegetables fresh hot-pepper green' where id =40;
+update estore.products set keywords = 'Vegetables fresh mushroom' where id =41;
+update estore.products set keywords = 'Vegetables fresh pea green' where id =43;
+update estore.products set keywords = 'Vegetables fresh corn tomato' where id =42;
+
+
+update estore.products set keywords = 'garlic ginger pepper anise basil cinnamon' where category_id =5;
+update estore.products set keywords = 'green tomato pea  mushroom corn broccoli' where category_id =6;
