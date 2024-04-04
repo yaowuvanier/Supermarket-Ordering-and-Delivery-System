@@ -12,7 +12,15 @@ export class SiderNavigationComponent {
   categories:Category[] = [];
   constructor (categoryService : CategoryService){
     // Fetch categories from the CategoryService
-    this.categories = categoryService.getAllCategories();
+    //subscrible--Observable through apiURL
+   categoryService.getAllCategories().subscribe((categories)=>{
+    this.categories = categories;
+   });
   }
 
+  getCategorie (categoryName: string) : Category[]{
+    return this.categories.filter(
+      (category) => categoryName = category.category
+    )
+  }
 }
