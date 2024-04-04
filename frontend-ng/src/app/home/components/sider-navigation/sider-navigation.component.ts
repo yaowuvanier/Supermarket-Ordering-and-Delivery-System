@@ -1,4 +1,4 @@
-import { Component,OnDestroy} from '@angular/core';
+import { Component,OnDestroy, EventEmitter, Output} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoriesStoreItem } from '../../services/categories.storeItem';
 import { CategoryService } from './../../services/category.service';
@@ -12,6 +12,9 @@ import { Category } from './../../types/category.type';
 })
 // 
 export class SidenavigationComponent implements OnDestroy {
+  @Output()
+  categoryClicked: EventEmitter<number> = new EventEmitter<number>();
+
   categories: Category[] = [];
   subscriptions: Subscription = new Subscription();
 
@@ -25,6 +28,10 @@ export class SidenavigationComponent implements OnDestroy {
 
   getCategories(): Category[] {
     return this.categories;
+  }
+
+  onCategoryClicked(category:Category):void{
+    this.categoryClicked.emit(category.id);
   }
 
   ngOnDestroy(): void {
