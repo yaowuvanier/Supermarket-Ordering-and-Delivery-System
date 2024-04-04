@@ -13,19 +13,20 @@ const pool = mysql.createPool({
 });
 
 app.get('/', (req, res) => {
-    pool.getConnection((err, connection)=>{
-        if(err)
-            res.status(500).send(err);
-        else{
-            pool.query('select* from categorie', (error, categories)=>{
+    /*no need getConnection method, direct using pool.query, because pool will handle the connet error */
+    // pool.getConnection((err, connection)=>{
+    //     if(err)
+    //         res.status(500).send(err);
+    //     else{
+            pool.query('select* from categories', (error, categories)=>{
                 if (error)
                     res.status(500).send(error);
                 else
                     res.status(200).send(categories);
             })
-        }
+    //     }
             
-    })
+    // })
 })
 
 const server = app.listen(PORT, () =>
