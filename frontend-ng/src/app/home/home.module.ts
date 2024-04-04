@@ -8,6 +8,8 @@ import { ProductsComponent } from './components/products/products.component';
 
 import { HttpClientModule } from '@angular/common/http'
 import { SharedModule } from '../shared/shared.module';
+import { CategoryService } from './services/category.service';
+import { CategoriesStoreItem } from './services/categories.storeItem';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     NgbModule,
     HttpClientModule,
     SharedModule
-  ]
+  ],
+  providers: [CategoryService, CategoriesStoreItem],
 })
 export class HomeModule { }
