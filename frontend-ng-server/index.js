@@ -5,7 +5,7 @@ const PORT = 5001;
 app.get('/', (req, res) => {
     let prodData = {
         pName: 'Bread',
-        price: 4,
+        price: 5,
         img: 'bread.jpg'
     }
     res.status(200).send(prodData)
