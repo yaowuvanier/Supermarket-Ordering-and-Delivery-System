@@ -15,6 +15,7 @@ import { CategoriesStoreItem } from './services/categories.storeItem';
 
 import { ProductsStoreItem } from './components/products/products.storeItem';
 import { ProductsService } from './components/products/products.service';
+import { CartStoreItem } from './services/cart/cart.storeItem';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,6 @@ import { ProductsService } from './components/products/products.service';
     SharedModule,
     FormsModule
   ],
-  providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem],
+  providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem,CartStoreItem],
 })
 export class HomeModule { }
