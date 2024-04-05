@@ -18,6 +18,7 @@ import { ProductsService } from './components/products/products.service';
 import { CartStoreItem } from './services/cart/cart.storeItem';
 import { CartComponent } from './components/cart/cart.component';
 import { RouterModule } from '@angular/router';
+import { UserSignupComponent } from './components/users/user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidenavigationComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    UserSignupComponent
   ],
   imports: [
     CommonModule,
