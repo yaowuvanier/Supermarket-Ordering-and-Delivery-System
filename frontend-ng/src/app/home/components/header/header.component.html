@@ -35,9 +35,16 @@
       <a href="#"><i class="bi bi-cart"></i></a>
     </div> -->
 
+    <div>
+      <a routerLink="/cart">Shoping Cart</a>
+    </div>
     <div class="cart-wishlist col-2 ms-2">
-      <button type="button" class="btn btn-light position-relative">
-        <a href="#"><i class="bi bi-cart"></i></a>
+      <button
+        type="button"
+        class="btn btn-light position-relative"
+        routerLink="/cart"
+      >
+        <a><i class="bi bi-cart"></i></a>
         <ng-container *ngIf="cartStore.cart$ | async as cart">
           <span
             *ngIf="cart.totalProducts > 0"
@@ -53,6 +60,7 @@
       <form class="d-flex ms-3" role="search">
         <input
           [(ngModel)]="keyword"
+          name="searchInput"
           class="form-control me-2"
           type="search"
           placeholder="Search"
