@@ -28,11 +28,25 @@
         </li>
       </ul>
     </div>
-    <div class="justify-content-end">
+    <!-- <div class="justify-content-end">
       <span>shoping cart</span>
     </div>
     <div class="col-2 ms-2">
       <a href="#"><i class="bi bi-cart"></i></a>
+    </div> -->
+
+    <div class="cart-wishlist col-2 ms-2">
+      <button type="button" class="btn btn-light position-relative">
+        <a href="#"><i class="bi bi-cart"></i></a>
+        <ng-container *ngIf="cartStore.cart$ | async as cart">
+          <span
+            *ngIf="cart.totalProducts > 0"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark"
+          >
+            {{ cart.totalProducts }}
+          </span>
+        </ng-container>
+      </button>
     </div>
 
     <div class="col-3 justify-content-center">

@@ -35,7 +35,7 @@
         <p class="card-text">${{ product.price }}</p>
         <!-- <p><app-ratings [score]="product.ratings"></app-ratings></p> -->
       </div>
-      <div class="text-center">
+      <div class="text-center" (click)="addToCart(product)">
         <!-- Center align the button -->
         <button class="btn btn-secondary w-100">Add to Cart</button>
       </div>
