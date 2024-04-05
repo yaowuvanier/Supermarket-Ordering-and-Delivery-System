@@ -11,7 +11,10 @@ export class HeaderComponent {
 
   @Output()
   searchClicked: EventEmitter<string> = new EventEmitter<string>();
-  onClickSearch(keyword : string):void{
-    this.searchClicked.emit(keyword);
+  keyword: string = '';
+
+  onClickSearch():void{
+    console.log("search keyword is " + this.keyword);
+    this.searchClicked.emit(this.keyword);
   }
 }

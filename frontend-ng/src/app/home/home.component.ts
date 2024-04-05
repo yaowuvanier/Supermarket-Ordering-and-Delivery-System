@@ -18,4 +18,9 @@ export class HomeComponent {
     console.log("home get the argument category id is " + categoryId)
     this.productsStoreItem.loadProducts('categoryId='+categoryId);
   }
+
+  onSearchKeyword(keyword:string):void {
+    console.log("home get the argument keyword is " + keyword)
+    this.productsStoreItem.loadProducts('keyword=' + keyword);
+  }
 }

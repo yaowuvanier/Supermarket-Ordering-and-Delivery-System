@@ -5,15 +5,15 @@ const pool = require('../shared/pool');
 products.get('/', (req,res)=>{
   var categoryId = req.query.categoryId;
   let query = 'select * from products ';
+  console.log("categoryId IS " + categoryId);
   //when categoryId=1, it's allCategory, so query no need to change
   if (categoryId && (categoryId!=='1')){
     query += 'where category_id = ' + categoryId;
   }
 
   var keyword = req.query.keyword;
-  let queryKeyword = 'select * from products ';
   if (keyword){
-    query = queryKeyword + ` where  keywords like '%${keyword}%'`;
+    query += ` where  keywords like '%${keyword}%'`;
   }
   console.log("keyword is " + keyword, "query is " + query);
   pool.query(query,(error, products)=>{

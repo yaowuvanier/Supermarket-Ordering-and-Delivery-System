@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
 import { SidenavigationComponent } from './components/sider-navigation/sider-navigation.component';
 import { ProductsComponent } from './components/products/products.component';
 
@@ -25,7 +27,8 @@ import { ProductsService } from './components/products/products.service';
     CommonModule,
     NgbModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem],
 })
