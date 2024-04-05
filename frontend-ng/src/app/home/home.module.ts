@@ -16,13 +16,15 @@ import { CategoriesStoreItem } from './services/categories.storeItem';
 import { ProductsStoreItem } from './components/products/products.storeItem';
 import { ProductsService } from './components/products/products.service';
 import { CartStoreItem } from './services/cart/cart.storeItem';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeaderComponent,
     SidenavigationComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
