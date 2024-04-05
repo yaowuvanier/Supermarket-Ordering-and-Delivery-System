@@ -17,6 +17,7 @@ import { ProductsStoreItem } from './components/products/products.storeItem';
 import { ProductsService } from './components/products/products.service';
 import { CartStoreItem } from './services/cart/cart.storeItem';
 import { CartComponent } from './components/cart/cart.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
     NgbModule,
     HttpClientModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem,CartStoreItem],
 })
