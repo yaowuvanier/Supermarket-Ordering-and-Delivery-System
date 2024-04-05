@@ -33,6 +33,7 @@ export class CartStoreItem extends StoreItem<Cart> {
       ];
     } else {
       cartProduct.quantity++;
+      cartProduct.amount += Number(product.price);
     }
     this.cart.totalAmount += Number(product.price);
     ++this.cart.totalProducts;
@@ -60,5 +61,6 @@ export class CartStoreItem extends StoreItem<Cart> {
     this.cart.totalProducts -= cartItem.quantity;
     this.cart.totalAmount -= cartItem.amount;
   }
+  
   
 }
