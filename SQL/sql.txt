@@ -160,14 +160,15 @@ update estore.products set keywords = 'garlic ginger pepper anise basil cinnamon
 update estore.products set keywords = 'green tomato pea  mushroom corn broccoli' where category_id =6;
 
 
-create table estore.users(
-	id int not null auto_increment,
-    email varchar(45) not null,
-    firstName varchar(45) default null,
-    lastName varchar(45) default null,
-   adress varchar(45) default null,
-      city varchar(45) default null,
-         state varchar(45) default null,
-    pin varchar(45) default null,
-    password varchar(500) default null,
-    primary key (id) );
+CREATE TABLE estore.users (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(45) NOT NULL,
+    firstName VARCHAR(45) DEFAULT NULL,
+    lastName VARCHAR(45) DEFAULT NULL,
+    address VARCHAR(45) DEFAULT NULL,
+    city VARCHAR(45) DEFAULT NULL,
+    state VARCHAR(45) DEFAULT NULL,
+    pin VARCHAR(45) DEFAULT NULL,
+    password VARCHAR(500) DEFAULT NULL, 
+    PRIMARY KEY (id)
+);
