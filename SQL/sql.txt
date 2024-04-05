@@ -172,3 +172,19 @@ CREATE TABLE estore.users (
     password VARCHAR(500) DEFAULT NULL, 
     PRIMARY KEY (id)
 );
+
+
+create table estore.`orders` (
+`orderId` int not null auto_increment,
+`orderDate` datetime default current_timestamp,
+`userName` varchar(100) default null,
+`address` varchar(45) default null,
+`city` varchar(45) default null,
+`state` varchar(45) default null,
+`pin` varchar(10) default null,
+`total` decimal(10,0) default null,
+`userId` int default null,
+primary key (`orderId`),
+key `FK_User_idx` (`userId`),
+constraint `FK_User` foreign key  (`userId`) references `users` (`id`)
+)
