@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule
 
 import { SidenavigationComponent } from './components/sider-navigation/sider-navigation.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -35,7 +35,8 @@ import { UserSignupComponent } from './components/users/user-signup/user-signup.
     HttpClientModule,
     SharedModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem,CartStoreItem],
 })
