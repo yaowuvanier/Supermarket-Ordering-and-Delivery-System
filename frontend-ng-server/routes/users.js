@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../shared/pool');
 const bcryptjs = require('bcrypt');
 const users = express.Router();
+const jwtoken = require('jsonwebtoken');
 
 users.post('/signup', (req, res) => {
   try {
@@ -41,6 +42,54 @@ users.post('/signup', (req, res) => {
     );
   } catch (error) {
     res.status(400).send({erroe: error.code, message: error.message});
+  }
+});
+
+users.post('/login', (req, res) => {
+  try {
+    let email = req.body.email;
+    let password = req.body.password;
+    pool.query(
+      `select * from users where email like '${email}'`,
+      (error, result) => {
+        if (error) {
+          res.status(500).send({
+            error: error.code,
+            message: error.message,
+          });
+        } else {
+          if (result.length > 0) {
+            bcryptjs
+              .compare(password, result[0].password)
+              .then((compareResult) => {
+                if (compareResult) {
+                  const token = jwtoken.sign(
+                    { id: result[0].id, email: result[0].email },
+                    'estore-secret-key',
+                    { expiresIn: '1h' }
+                  );
+                  res.status(200).send({
+                    token: token,
+                  });
+                } else {
+                  res.status(401).send({
+                    message: `Invalid password.`,
+                  });
+                }
+              });
+          } else {
+            res.status(401).send({
+              message: `User doesn't exist.`,
+            });
+          }
+        }
+      }
+    );
+  } catch (error) {
+    res.status(400).send({
+      error: error.code,
+      message: error.message,
+    });
   }
 });
 
