@@ -188,3 +188,13 @@ primary key (`orderId`),
 key `FK_User_idx` (`userId`),
 constraint `FK_User` foreign key  (`userId`) references `users` (`id`)
 )
+
+
+
+-- users
+{
+  "email": "danies@gmai.com",
+  "password" : "123Qyiu-",
+  "firstName": "Danies"
+  
+}
