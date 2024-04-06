@@ -16,6 +16,12 @@
               id="firstName"
               formControlName="firstName"
             />
+            <span
+              class="text-danger"
+              *ngIf="firstName?.touched && firstName?.errors?.['required']"
+            >
+              First Name is required
+            </span>
           </div>
           <div class="form-group col-md-6">
             <label for="lastName">Last Name</label>
@@ -76,6 +82,18 @@
             id="email"
             formControlName="email"
           />
+          <span
+            class="text-danger"
+            *ngIf="email?.touched && email?.errors?.['required']"
+          >
+            Email is required
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="email?.touched && email?.errors?.['email']"
+          >
+            Enter valid email address
+          </span>
         </div>
         <div class="form-group form-group-margin">
           <label for="password">Password*</label>
@@ -85,6 +103,12 @@
             id="password"
             formControlName="password"
           />
+          <span
+            class="text-danger"
+            *ngIf="password?.touched && password?.errors?.['required']"
+          >
+            Password is required
+          </span>
         </div>
 
         <div class="form-group form-group-margin">
@@ -95,9 +119,28 @@
             id="confirmPassword"
             formControlName="confirmPassword"
           />
+          <span
+            class="text-danger"
+            *ngIf="confirmPassword?.touched && confirmPassword?.errors?.['required']"
+          >
+            Confirm Password is required
+          </span>
+
+          <span
+            class="text-danger"
+            *ngIf="confirmPassword?.touched && userSignupForm.errors?.['passwordMismatch']"
+          >
+            Passwords doesn't match
+          </span>
         </div>
         <div class="text-center form-group-margin">
-          <button type="submit" class="btn btn-warning w-50 mt-2">Join</button>
+          <button
+            type="submit"
+            class="btn btn-warning w-50 mt-2"
+            [disabled]="!userSignupForm.valid"
+          >
+            Join
+          </button>
         </div>
       </form>
     </div>
