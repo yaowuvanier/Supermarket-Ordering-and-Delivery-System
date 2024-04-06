@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { matchPasswords } from './validators/match-passwords.validator'
+import {passwordStrength} from './validators/password-Strength.validator'
 
 @Component({
   selector: 'app-user-signup',
@@ -17,9 +19,12 @@ export class UserSignupComponent implements OnInit {
       city: [''],
       state: [''],
       pin: [''],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
+    },
+    {
+      validators: matchPasswords,
     });
   }
 
