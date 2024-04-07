@@ -19,6 +19,7 @@ import { CartStoreItem } from './services/cart/cart.storeItem';
 import { CartComponent } from './components/cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { UserSignupComponent } from './components/users/user-signup/user-signup.component';
+import { UserLoginComponent } from './components/users/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserSignupComponent } from './components/users/user-signup/user-signup.
     SidenavigationComponent,
     ProductsComponent,
     CartComponent,
-    UserSignupComponent
+    UserSignupComponent,
+    UserLoginComponent
   ],
   imports: [
     CommonModule,
