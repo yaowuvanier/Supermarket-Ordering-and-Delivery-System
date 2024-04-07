@@ -14,3 +14,7 @@ export interface userLogin {
     password: string;
   }
   
+export interface loginToken {
+token: string;
+expiresInSeconds: number;
+}
