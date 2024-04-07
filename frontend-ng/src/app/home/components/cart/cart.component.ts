@@ -14,7 +14,7 @@ export class CartComponent {
   constructor(public cartStore: CartStoreItem, private router: Router) {}
 
   navigateToHome(): void {
-    this.router.navigate(['home/products']);
+    this.router.navigate(['home']);
   }
 
   updateQuantity($event: any, cartItem: CartItem): void {
