@@ -22,6 +22,7 @@ import { UserSignupComponent } from './components/users/user-signup/user-signup.
 import { UserLoginComponent } from './components/users/user-login/user-login.component';
 import { UserService } from './components/users/services/user-service.service';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -40,8 +41,15 @@ import { UserService } from './components/users/services/user-service.service';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    
+  ],
+  providers: [
+    CategoryService, 
+    CategoriesStoreItem, 
+    ProductsService, 
+    ProductsStoreItem,
+    CartStoreItem,
     UserService
   ],
-  providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem,CartStoreItem],
 })
 export class HomeModule { }

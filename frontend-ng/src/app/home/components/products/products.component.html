@@ -21,7 +21,7 @@
 </div> -->
 
 <div class="row">
-  <div class="col-md-3" *ngFor="let product of productsStore.products$ | async">
+  <div class="col-md-2" *ngFor="let product of productsStore.products$ | async">
     <div class="card mb-3">
       <img
         [src]="'../../../../assets/images' + product.product_img"

@@ -118,7 +118,7 @@ update estore.products set keywords = 'Fruits fruit tangerine orange' where id =
 update estore.products set keywords = 'Fruits fruit watermelon green sweet' where id =35;
 
 update estore.products set keywords = 'Vegetables fresh broccoli green' where id =14;
-update estore.products set keywords = 'Vegetables fresh carrot orange' where id =15;
+update estore.products set keywords = 'Vegetables fresh carrot orange yellow' where id =15;
 update estore.products set keywords = 'Vegetables fresh corn yellow sweet' where id =16;
 
 update estore.products set keywords = 'Vegetables fresh hot-pepper green' where id =40;

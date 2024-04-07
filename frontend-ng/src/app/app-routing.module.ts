@@ -5,6 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CartComponent } from './home/components/cart/cart.component';
 import { UserSignupComponent } from './home/components/users/user-signup/user-signup.component';
 import { UserLoginComponent } from './home/components/users/user-login/user-login.component';
+import { ProductsComponent } from './home/components/products/products.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
