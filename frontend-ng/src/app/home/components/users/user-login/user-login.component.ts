@@ -2,7 +2,8 @@ import { userLogin, loginToken } from './../../../types/user.type';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
- 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -13,7 +14,10 @@ export class UserLoginComponent implements OnInit{
   alertType: number = 0;
   alertMessage: string = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(
+    private fb: FormBuilder, 
+    private userService: UserService,     
+    private location: Location) {}
 
   ngOnInit(): void {
     this.userLoginForm = this.fb.group({
@@ -36,6 +40,9 @@ export class UserLoginComponent implements OnInit{
         this.userService.activateToken(result);
         this.alertType = 0;
         this.alertMessage = 'Login successful';
+        setTimeout(() => {
+          this.location.back();
+        }, 1000);
       },
       error: (error) => {
         this.alertType = 2;
