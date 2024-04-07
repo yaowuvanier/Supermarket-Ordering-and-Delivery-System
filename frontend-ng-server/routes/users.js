@@ -58,6 +58,7 @@ users.post('/login', (req, res) => {
             message: error.message,
           });
         } else {
+          // @ts-ignore
           if (result.length > 0) {
             bcryptjs
               .compare(password, result[0].password)
@@ -70,6 +71,7 @@ users.post('/login', (req, res) => {
                   );
                   res.status(200).send({
                     token: token,
+                    expiresInSeconds: 3600
                   });
                 } else {
                   res.status(401).send({

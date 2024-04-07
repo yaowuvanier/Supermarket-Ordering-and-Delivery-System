@@ -20,6 +20,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { UserSignupComponent } from './components/users/user-signup/user-signup.component';
 import { UserLoginComponent } from './components/users/user-login/user-login.component';
+import { UserService } from './components/users/services/user-service.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserLoginComponent } from './components/users/user-login/user-login.com
     SharedModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserService
   ],
   providers: [CategoryService, CategoriesStoreItem, ProductsService, ProductsStoreItem,CartStoreItem],
 })
