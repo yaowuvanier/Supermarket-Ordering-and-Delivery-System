@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { loginToken, user } from 'src/app/home/types/user.type';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { loginToken, user, loggedInUser } from 'src/app/home/types/user.type';
 
 @Injectable()
 export class UserService  {
+  private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(
+    false
+  );
+  private loggedInUserInfo: BehaviorSubject<loggedInUser> = new BehaviorSubject(
+    <loggedInUser>{}
+  );
 
   constructor(private httpClient: HttpClient) { }
+
+  get isUserAuthenticated(): boolean {
+    return this.isAuthenticated.value;
+  }
+
+  get isUserAuthenticated$(): Observable<boolean> {
+    return this.isAuthenticated.asObservable();
+  }
 
   createUser(user: user): Observable<any> {
     const url: string = 'http://localhost:5001/users/signup';
