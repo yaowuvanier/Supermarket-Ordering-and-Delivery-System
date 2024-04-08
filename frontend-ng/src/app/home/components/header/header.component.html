@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">grocery-order-delivery</a>
     </div>
 
-    <div
+    <!-- <div
       class="col-3 justify-content-center collapse navbar-collapse"
       id="navbarNavDropdown"
     >
@@ -21,14 +21,46 @@
             <i class="bi bi-person-circle"></i>
             <span>` `Sign in / join</span>
           </a>
-          <!-- <ul ngbDropdownMenu class="dropdown-menu">
+          <! <ul ngbDropdownMenu class="dropdown-menu">
             <li><a class="dropdown-item" href="#">My Orders</a></li>
             <li><a class="dropdown-item" href="#">Manage orders</a></li>
             <li><a class="dropdown-item" href="#">Manage products</a></li>
           </ul> -->
-        </li>
+    <!-- </li>
       </ul>
+    </div>  -->
+
+    <div class="col-3 justify-content-center collapse navbar-collapse">
+      <div class="row align-items-center" *ngIf="!isUserAuthenticated">
+        <div class="col-auto">
+          <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="col">
+          <h5 class="mb-0"><a routerLink="/login">Sign in / Join</a></h5>
+        </div>
+      </div>
+
+      <div
+        ngbDropdown
+        class="dropdown user-dropdown"
+        *ngIf="isUserAuthenticated"
+      >
+        <button
+          ngbDropdownToggle
+          class="btn btn-secondary dropdown-toggle user-dropdown-button"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-person-circle"></i>
+          Hi {{ userName }}
+        </button>
+        <ul ngbDropdownMenu class="dropdown-menu">
+          <li><a class="dropdown-item">Logout</a></li>
+        </ul>
+      </div>
     </div>
+
     <!-- <div class="justify-content-end">
       <span>shoping cart</span>
     </div>

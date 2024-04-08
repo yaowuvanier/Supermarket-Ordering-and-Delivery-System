@@ -35,7 +35,7 @@ export class HeaderComponent implements OnDestroy{
       })
     );
   }
-  
+
   @Output()
   searchClicked: EventEmitter<string> = new EventEmitter<string>();
   keyword: string = '';
@@ -43,5 +43,9 @@ export class HeaderComponent implements OnDestroy{
   onClickSearch():void{
     console.log("search keyword is " + this.keyword);
     this.searchClicked.emit(this.keyword);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }
