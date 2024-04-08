@@ -42,6 +42,19 @@ export class CartComponent implements OnInit, OnDestroy{
     );
   }
 
+  ngOnInit(): void {
+    this.orderForm = this.fb.group({
+      name: [
+        `${this.user.firstName} ${this.user.lastName}`,
+        Validators.required,
+      ],
+      address: [this.user.address, Validators.required],
+      city: [this.user.city, Validators.required],
+      state: [this.user.state, Validators.required],
+      pin: [this.user.pin, Validators.required],
+    });
+  }
+
   navigateToHome(): void {
     this.router.navigate(['home']);
   }
@@ -57,4 +70,11 @@ export class CartComponent implements OnInit, OnDestroy{
   removeItem(cartItem: CartItem): void {
     this.cartStore.removeProduct(cartItem);
   }
+
+  onSubmit(): void {}
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+  
 }
