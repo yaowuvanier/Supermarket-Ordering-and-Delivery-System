@@ -189,7 +189,17 @@ key `FK_User_idx` (`userId`),
 constraint `FK_User` foreign key  (`userId`) references `users` (`id`)
 )
 
-
+CREATE TABLE estore.`orderdetails` (
+  `orderId` int NOT NULL,
+  `productId` int DEFAULT NULL,
+  `qty` int DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `amount` decimal(10,0) DEFAULT NULL,
+  KEY `FK_orderId_idx` (`orderId`),
+  KEY `FK_productId_idx` (`productId`),
+  CONSTRAINT `FK_orderId` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`),
+  CONSTRAINT `FK_productId` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
+) 
 
 -- users
 {
@@ -198,3 +208,5 @@ constraint `FK_User` foreign key  (`userId`) references `users` (`id`)
   "firstName": "Danies"
   
 }
+
+
