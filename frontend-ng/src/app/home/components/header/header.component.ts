@@ -45,7 +45,12 @@ export class HeaderComponent implements OnDestroy{
     this.searchClicked.emit(this.keyword);
   }
 
+  logout(): void {
+    this.userService.logout();
+  }
+  
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
+
 }

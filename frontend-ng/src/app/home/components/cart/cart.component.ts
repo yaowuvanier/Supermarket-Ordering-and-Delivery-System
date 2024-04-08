@@ -1,17 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartStoreItem } from '../../services/cart/cart.storeItem';
 
 import { CartItem } from '../../types/cart.type';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../users/services/user-service.service';
+import { loggedInUser } from '../../types/user.type';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit, OnDestroy{
+  // Related to orders
+  orderForm: FormGroup;
+  user: loggedInUser;
+  subscriptions: Subscription = new Subscription();
 
-  constructor(public cartStore: CartStoreItem, private router: Router) {}
+  constructor(
+    public cartStore: CartStoreItem, 
+    private router: Router,
+    private fb: FormBuilder,
+    private userService: UserService
+  ) {
+    this.user = {
+      firstName: '',
+      lastName: '',
+      address: '',
+      city: '',
+      state: '',
+      pin: '',
+    };
+    this.subscriptions.add(
+      userService.loggedInUser$.subscribe((loggedUser) => {
+        if (loggedUser.firstName) {
+          this.user = loggedUser;
+        }
+      })
+    );
+  }
 
   navigateToHome(): void {
     this.router.navigate(['home']);
