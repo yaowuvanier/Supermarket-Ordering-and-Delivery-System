@@ -6,6 +6,7 @@ import { CartComponent } from './home/components/cart/cart.component';
 import { UserSignupComponent } from './home/components/users/user-signup/user-signup.component';
 import { UserLoginComponent } from './home/components/users/user-login/user-login.component';
 import { ProductsComponent } from './home/components/products/products.component';
+import { PastordersComponent } from './home/components/pastorders/pastorders.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: 'cart', component:CartComponent},
   {path: 'signup', component:UserSignupComponent},
   {path: 'login', component:UserLoginComponent},
-  
+  {path: 'pastorders', component:PastordersComponent},
   {path: '**', component:NotFoundComponent},
 
 ];
