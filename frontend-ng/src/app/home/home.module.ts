@@ -22,6 +22,7 @@ import { UserSignupComponent } from './components/users/user-signup/user-signup.
 import { UserLoginComponent } from './components/users/user-login/user-login.component';
 import { UserService } from './components/users/services/user-service.service';
 import { OrderService } from './services/order/orders.service';
+import { PastordersComponent } from './components/pastorders/pastorders.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrderService } from './services/order/orders.service';
     ProductsComponent,
     CartComponent,
     UserSignupComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PastordersComponent
   ],
   imports: [
     CommonModule,
