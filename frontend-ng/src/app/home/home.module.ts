@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
 import { UserSignupComponent } from './components/users/user-signup/user-signup.component';
 import { UserLoginComponent } from './components/users/user-login/user-login.component';
 import { UserService } from './components/users/services/user-service.service';
-
+import { OrderService } from './services/order/orders.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { UserService } from './components/users/services/user-service.service';
     ProductsService, 
     ProductsStoreItem,
     CartStoreItem,
-    UserService
+    UserService,
+    OrderService
   ],
 })
 export class HomeModule { }
