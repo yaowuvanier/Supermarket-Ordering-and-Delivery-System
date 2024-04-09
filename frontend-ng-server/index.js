@@ -14,7 +14,7 @@ app.use(bodyparser.json());
 app.use('/productCategories',productCategories);
 app.use('/products', products )
 app.use('/users', users )
-app.use('orders', orders)
+app.use('/orders', orders)
 
 const server = app.listen(PORT, () =>
     console.log('APP IS RUNNING ON THE PORT - 5001...')

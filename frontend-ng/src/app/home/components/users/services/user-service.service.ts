@@ -45,7 +45,7 @@ export class UserService  {
     return this.httpClient.post(url, { email: email, password: password });
   }
 
-  activateToken(token: loginToken, email: string): void {
+  activateToken(token: loginToken): void {
     //token.expiresInSeconds = 10;   for test, 10seconds automatically logout
     localStorage.setItem('token', token.token);
     localStorage.setItem(
@@ -58,7 +58,7 @@ export class UserService  {
     localStorage.setItem('city', token.user.city);
     localStorage.setItem('state', token.user.state);
     localStorage.setItem('pin', token.user.pin);
-    localStorage.setItem('email', email);
+    localStorage.setItem('email', token.user.email);
 
     this.isAuthenticated.next(true);
     this.loggedInUserInfo.next(token.user);

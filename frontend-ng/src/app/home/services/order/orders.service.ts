@@ -40,6 +40,9 @@ export class OrderService {
       userEmail: userEmail,
       orderDetails: orderDetails,
     };
+    console.log('order information is ', order )
+    console.log('authorization token is ', this.userservice.token )
+
     return this.httpClient.post(url, order, {
       headers: { authorization: this.userservice.token },
     });
