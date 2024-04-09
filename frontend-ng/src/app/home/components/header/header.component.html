@@ -56,6 +56,8 @@
           Hi {{ userName }}
         </button>
         <ul ngbDropdownMenu class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="pastOrders()">Past Orders</a></li>
+
           <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
         </ul>
       </div>

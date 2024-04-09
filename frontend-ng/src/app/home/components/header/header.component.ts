@@ -7,6 +7,8 @@ import { CategoriesStoreItem } from '../../services/categories.storeItem';
 import { UserService } from '../users/services/user-service.service';
 import { Subscription } from 'rxjs';
 
+import {  Router } from '@angular/router';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -21,8 +23,11 @@ export class HeaderComponent implements OnDestroy{
   constructor(
     public categoryStore: CategoriesStoreItem,
     public cartStore: CartStoreItem,
-    public userService: UserService
+    public userService: UserService,
+    private router: Router,
   ){
+
+
     this.subscriptions.add(
       this.userService.isUserAuthenticated$.subscribe((result) => {
         this.isUserAuthenticated = result;
@@ -49,6 +54,10 @@ export class HeaderComponent implements OnDestroy{
     this.userService.logout();
   }
   
+  pastOrders(): void {
+    this.router.navigate(['pastorders']);
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
