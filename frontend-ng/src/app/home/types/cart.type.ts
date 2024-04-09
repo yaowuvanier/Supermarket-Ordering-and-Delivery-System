@@ -11,4 +11,13 @@ export interface CartItem {
     totalAmount: number;
     totalProducts: number;
   }
+
+  export interface DeliveryAddress {
+    userName: string;
+    address: string;
+    city: string;
+    state: string;
+    pin: string;
+  }
+  
   
