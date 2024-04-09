@@ -71,7 +71,7 @@ orders.post('/add', checkToken, (req, res) => {
 
 orders.get('/allorders', checkToken, (req, res) => {
   try {
-    let userEmail = req.body.userEmail;
+    let userEmail = req.query.userEmail;
     pool.query(
       `select id from users where email ='${userEmail}'`,
       (error, user) => {
@@ -126,10 +126,10 @@ orders.get('/allorders', checkToken, (req, res) => {
 
 orders.get('/orderproducts', checkToken, (req, res) => {
   try {
-    let orderId = req.body.orderId;
+    let orderId = req.query.orderId;
     console.log('orderid is ', orderId)
     pool.query(
-      `select orderdetails.*, products.product_name from orderDetails, products 
+      `select orderdetails.*, products.product_name, products.products_img from orderDetails, products 
                     where orderDetails.productId = products.id and orderId = ${orderId}`,
       (error, orderProducts) => {
         if (error) {
@@ -144,6 +144,7 @@ orders.get('/orderproducts', checkToken, (req, res) => {
             orderDetails.push({
               productId: orderProduct.productId,
               productName: orderProduct.product_name,
+              pdoductImage: orderProduct.products_img,
               qty: orderProduct.qty,
               price: orderProduct.price,
               amount: orderProduct.amount,
