@@ -209,4 +209,15 @@ CREATE TABLE estore.`orderdetails` (
   
 }
 
+{
+    "userName":"John Smith",
+    "address":"168 Fulton St.",
+    "city": "Brooklyn",
+    "state": "NY",
+    "pin": "11233",
+    "total": "60",
+    "userEmail": "johnsmith@gmail.com",
+    "password" : "11qq22ww",
+}
+
 

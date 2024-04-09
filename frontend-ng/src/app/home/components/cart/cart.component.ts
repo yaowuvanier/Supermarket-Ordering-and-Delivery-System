@@ -32,6 +32,7 @@ export class CartComponent implements OnInit, OnDestroy{
       city: '',
       state: '',
       pin: '',
+      email: '',
     };
     this.subscriptions.add(
       userService.loggedInUser$.subscribe((loggedUser) => {

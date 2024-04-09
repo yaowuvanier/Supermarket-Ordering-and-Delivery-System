@@ -14,6 +14,7 @@ orders.post('/add', checkToken, (req, res) => {
     let total = req.body.total;
     let orderDetails = req.body.orderDetails;
 
+    console.log ("email is", userEmail)
     pool.query(
       `select id from users where email ='${userEmail}'`,
       (error, user) => {
