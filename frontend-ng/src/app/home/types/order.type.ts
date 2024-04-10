@@ -22,8 +22,8 @@ export interface PastOrder {
   city: string;
   state: string;
   pin:string;
-  total:string;
-  orderDatae: string;
+  total:number;
+  orderDate: string;
 }
 
 export interface PastOrderProduct {
