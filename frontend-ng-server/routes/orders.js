@@ -14,7 +14,6 @@ orders.post('/add', checkToken, (req, res) => {
     let total = req.body.total;
     let orderDetails = req.body.orderDetails;
 
-    console.log ("email is", userEmail)
     pool.query(
       `select id from users where email ='${userEmail}'`,
       (error, user) => {
@@ -24,7 +23,6 @@ orders.post('/add', checkToken, (req, res) => {
             message: error.message,
           });
         } else {
-          // @ts-ignore
           if (user.length > 0) {
             let userId = user[0].id;
             const query = `insert into orders (userId, userName,address,city,state,pin,total)
@@ -42,7 +40,6 @@ orders.post('/add', checkToken, (req, res) => {
                   const detailsQuery = `insert into orderdetails 
             (orderId,productId,qty,price,amount) values
             (${orderId},${item.productId},${item.qty},${item.price},${item.amount})`;
-                  // @ts-ignore
                   pool.query(detailsQuery, (detailsError, detailsResult) => {
                     if (detailsError) {
                       res.status(401).send({
@@ -81,7 +78,6 @@ orders.get('/allorders', checkToken, (req, res) => {
             message: error.message,
           });
         } else {
-          // @ts-ignore
           if (user.length > 0) {
             let userId = user[0].id;
             pool.query(
@@ -94,7 +90,6 @@ orders.get('/allorders', checkToken, (req, res) => {
                   });
                 } else {
                   const allOrders = [];
-                  // @ts-ignore
                   orders.forEach((order) => {
                     allOrders.push({
                       orderId: order.orderId,
@@ -123,13 +118,11 @@ orders.get('/allorders', checkToken, (req, res) => {
   }
 });
 
-
 orders.get('/orderproducts', checkToken, (req, res) => {
   try {
     let orderId = req.query.orderId;
-    console.log('orderid is ', orderId)
     pool.query(
-      `select orderdetails.*, products.product_name, products.products_img from orderDetails, products 
+      `select orderdetails.*, products.product_name, products.product_img from orderDetails, products 
                     where orderDetails.productId = products.id and orderId = ${orderId}`,
       (error, orderProducts) => {
         if (error) {
@@ -139,12 +132,11 @@ orders.get('/orderproducts', checkToken, (req, res) => {
           });
         } else {
           let orderDetails = [];
-          // @ts-ignore
           orderProducts.forEach((orderProduct) => {
             orderDetails.push({
               productId: orderProduct.productId,
               productName: orderProduct.product_name,
-              pdoductImage: orderProduct.products_img,
+              productImage: orderProduct.product_img,
               qty: orderProduct.qty,
               price: orderProduct.price,
               amount: orderProduct.amount,
@@ -161,6 +153,5 @@ orders.get('/orderproducts', checkToken, (req, res) => {
     });
   }
 });
-
 
 module.exports = orders;

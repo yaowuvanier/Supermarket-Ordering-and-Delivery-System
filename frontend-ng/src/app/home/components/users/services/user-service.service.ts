@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { loginToken, user, loggedInUser } from 'src/app/home/types/user.type';
@@ -15,7 +15,7 @@ export class UserService  {
     <loggedInUser>{}
   );
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(@Optional() private httpClient: HttpClient) { 
     this.loadToken();
   }
 
@@ -39,7 +39,7 @@ export class UserService  {
     return this.authToken;
   }
 
-  createUser(user: user): Observable<any> {
+  createUser( user: user): Observable<any> {
     const url: string = 'http://localhost:5001/users/signup';
     return this.httpClient.post(url, user);
   }

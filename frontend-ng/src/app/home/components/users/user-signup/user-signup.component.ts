@@ -6,6 +6,7 @@ import {passwordStrength} from './validators/password-Strength.validator'
 
 import { UserService } from '../services/user-service.service';
 import { user } from 'src/app/home/types/user.type';
+import { HeaderComponent } from '../../header/header.component';
 
 
 @Component({
