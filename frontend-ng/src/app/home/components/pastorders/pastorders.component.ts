@@ -1,10 +1,8 @@
-import { PastOrder } from './../../types/order.type';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PastOrder, PastOrderProduct } from '../../types/order.type';
 import { OrderService } from '../../services/order/orders.service';
 import { UserService } from '../users/services/user-service.service';
 import { Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-pastorders',
@@ -13,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class PastordersComponent implements OnInit, OnDestroy{
   pastOrderProducts: PastOrderProduct[] = [];
-  PastOrder : PastOrder;
+  pastOrder : PastOrder;
   pastOrders: PastOrder[] = [];
   subscriptions: Subscription = new Subscription();
 
@@ -32,16 +30,27 @@ export class PastordersComponent implements OnInit, OnDestroy{
     );
   }
 
-  
-  pastOrder: PastOrder = {
-    address: 'Address goes here',
-    city: 'New Jersey',
-    orderDate: '03/01/23',
-    pin: '12345',
-    state: 'NY',
-    total: 100,
-    userName: 'Thomas Brown',
-  };
+  selectOrder(event: any) {
+    if (Number.parseInt(event.target.value) > 0) {
+      this.pastOrder = this.pastOrders.filter(
+        (order) => order.orderId === Number.parseInt(event.target.value)
+      )[0];
+      this.getOrderProducts(this.pastOrder.orderId);
+    } else {
+      this.pastOrder = <any>undefined;
+      this.pastOrderProducts = [];
+    }
+  }
 
-  selectOrder(event: any): void {}
+  getOrderProducts(orderId: number): void {
+    this.subscriptions.add(
+      this.orderService.getOrderProducts(orderId).subscribe(products => {
+        this.pastOrderProducts = products
+      })
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
 }
